@@ -1,0 +1,189 @@
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 554925        # yksikäsitteinen tuotekoodi: int
+NAME chicken wings # tuotteen nimi: str
+CATEGORY meat      # tuotekategoria (esim. dairy (maito), meat (liha) jne.): str
+PRICE 3.19         # hinta €uroina: float
+STOCK 77           # kuinka paljon tuotetta on varastossa: int
+END PRODUCT
+BEGIN PRODUCT
+CODE 691021
+NAME Coca Cola 1/2 l
+CATEGORY drink
+PRICE 1.75
+STOCK 4712
+END PRODUCT
+BEGIN PRODUCT
+CODE 691021
+NAME Coca Cola 1/2 l
+CATEGORY drink
+PRICE 1.75
+STOCK 4712
+END PRODUCT
+BEGIN PRODUCT
+CODE 691021
+NAME Coca Cola 1/2 l
+CATEGORY drink
+PRICE 1.75
+STOCK 4712
+END PRODUCT
+BEGIN PRODUCT
+CODE 691021
+NAME Coca Cola 1/2 l
+CATEGORY drink
+PRICE 1.75
+STOCK 4712
+END PRODUCT
