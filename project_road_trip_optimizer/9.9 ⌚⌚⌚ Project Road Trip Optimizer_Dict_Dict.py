@@ -1,37 +1,15 @@
 """
 COMP.CS.100 Ohjelmointi 1 / Programming 1
-Student Id: 151317891
+Student ID: 151317891
 Name:       Nguyen The Long
 Email:      long.nguyen@tuni.fi
 
-Student Id: 151394898
-Name:       Vu Dinh Thi
-Email:      thi.vu@tuni.fi
 Project 3: Road Trip Optimizer
-Examine distances and routes between cities through Finnish highway network
-
-Tom gon lai nhung gi minh can sua lai:
-- Đổi tên biến cho phù hợp với nội dung và yêu cầu
-- Thêm comment + docstring vào trong bài, chú thích vào trong function, biến,...
-- Giải thích phương pháp sắp xếp mảng (nghĩa là sắp xếp các phần tử theo thứ tự) bằng docstring (T có thể dùng phương
- pháp khác, nhưng nói chung là làm vậy thì nó sẽ có trật tự trong biến dictionary hơn, nên t thích dùng phương pháp này)
-- Rút ngắn function nếu cảm thấy quá dài, nói chung file t đưa m là nguyên mẫu, nếu trong trường hợp có thể rút ngắn
-theo cách kết hợp thì cứ áp dụng
-- Có thể xem xét lại phương pháp xác định điều kiện True/False (bởi vì t chỉ dùng biến để xác định điều kiện cho 1 số
-hàm while/if nếu có, miễn không thay đổi giá trị nội dung là được)
--... Còn cái gì tự nghĩ ra thì nhớ làm luôn
-
-Lưu ý:
-+ M không cần phải tác động vào def find_route (từ dòng 24 đến dòng 91), cứ giữ nguyên như vậy mà không cần thay đổi
-+ Nhớ đọc lại file thứ 2 (file 20 điểm đầu tiên) của bài project 6.2 để tham khảo - Nếu muốn có thể tham khảo luôn file
-20 điểm cuối cùng
-+ Có thể dùng chức năng replace để sửa file, nhưng nhớ cẩn thận
-+ Nhớ xem thử nội dung mà assistant chấm cho project 1 của m và t, project 2 để đối chiếu
-+ Khi đổi tên biến nhớ lưu ý những biến có sẵn trong template thì không đổi
-+ Làm xong rồi thì nhớ xóa mấy cái này
-+ Làm xong rồi nhớ test file lại bằng submit only, đừng chọn graded là được
-
-+++ Lỡ m des mà có hư nội dung file này thì file test.py luôn đợi m ở đó
+This program is to find the shortest route between two cities. The program
+will read the distance information from a file and store it in a suitable
+data structure. Then, it will find the shortest route between two cities
+using Dijkstra's algorithm (Prediction based on the template code). 
+Finally, it will print out the route and the total distance of the route.
 """
 
 
@@ -49,7 +27,7 @@ def find_route(data, departure, destination):
     reason the route does not exist, the return value is
     an empty list [].
 
-    :param data: ?????, A data structure of an unspecified type (you decide)
+    :param data: dict[str, dict[str, int]], A data structure of an unspecified type (you decide)
            which contains the distance information between the cities.
     :param departure: str, the name of the departure city.
     :param destination: str, the name of the destination city.
@@ -58,13 +36,6 @@ def find_route(data, departure, destination):
            and the destination cities are the same, the function returns
            a two element list where the departure city is stores twice.
     """
-
-    # +--------------------------------------+
-    # |                                      |
-    # |     DO NOT MODIFY THIS FUNCTION!     |
-    # |                                      |
-    # +--------------------------------------+
-
     if departure not in data:
         return []
 
@@ -113,38 +84,26 @@ def read_distance_file(file_name):
     unless an error happens during the file reading operation.
 
     :param file_name: str, The name of the file to be read.
-    :return: ????? | None: A data structure containing the information
+    :return: dict[str, dict[str, int]] | None: A data structure containing the information
              read from the <file_name> or None if any kind of error happens.
              The data structure to be chosen is completely up to you as long
              as all the required operations can be implemented using it.
     """
-
-    # +----------------------------------------------------------------+
-    # |                                                                |
-    # |  TODO: Implement your own version of read_distance_file here.  |
-    # |                                                                |
-    # +----------------------------------------------------------------+\
     try:
-        file_name = open(file_name, mode='r', encoding="utf-8")
+        file_name = open(file_name, mode="r", encoding="utf-8")
         data = {}
-        k = []
+
         for row in file_name:
-            k.append(row.rstrip().split(";"))  # split ";" each row from the file into the list
-        for i in range(0, len(k), 1):  # call each list in list k
-            listtosmalllist = [[k[i][1]]]
-            listtosmalllist[0].append(k[i][2])  # append value of list of list k to list of listtosmallist
-            if k[i][0] not in data:
-                data[k[i][0]] = listtosmalllist
+            row = row.rstrip().split(";")
+
+            if row[0] not in data:
+                data[row[0]] = {row[1]: int(row[2])}
             else:
-                data[k[i][0]] += listtosmalllist
-                for u in range(0, len(data[k[i][0]]) - 1):
-                    for v in range(u + 1, len(data[k[i][0]])):
-                        if data[k[i][0]][u][0] > data[k[i][0]][v][0]:
-                            # Change the position of the list of the list of a value of key of dictionary
-                            a = data[k[i][0]][u]
-                            data[k[i][0]][u] = data[k[i][0]][v]
-                            data[k[i][0]][v] = a
+                data[row[0]][row[1]] = int(row[2])
+
+        file_name.close()
         return data
+
     except FileNotFoundError:
         return None
 
@@ -158,7 +117,7 @@ def fetch_neighbours(data, city):
     an empty list [], if <city> is unknown or if there are no
     arrows leaving from <city>.
 
-    :param data: ?????, A data structure containing the distance
+    :param data: dict[str, dict[str, int]], A data structure containing the distance
            information between the known cities.
     :param city: str, the name of the city whose neighbours we
            are interested in.
@@ -167,19 +126,9 @@ def fetch_neighbours(data, city):
              a departure city in <data>) or if there are no
              arrows leaving from the <city>.
     """
-
-    # +--------------------------------------------------------------+
-    # |                                                              |
-    # |  TODO: Implement your own version of fetch_neighbours here.  |
-    # |                                                              |
-    # +--------------------------------------------------------------+
-    k = []
     if city not in data:
-        k = []
-    else:
-        for i in range(0, len(data[city]), 1):
-            k.append(data[city][i][0])
-    return k
+        return []
+    return list(data[city].keys())
 
 
 def distance_to_neighbour(data, departure, destination):
@@ -190,7 +139,7 @@ def distance_to_neighbour(data, departure, destination):
     if there is no arrow leading from <departure> city to
     <destination> city.
 
-    :param data: ?????, A data structure containing the distance
+    :param data: dict[str, dict[str, int]], A data structure containing the distance
            information between the known cities.
     :param departure: str, the name of the departure city.
     :param destination: str, the name of the destination city.
@@ -198,91 +147,180 @@ def distance_to_neighbour(data, departure, destination):
            <destination>. None if there is no direct connection
            between the two cities.
     """
+    if departure == destination:
+        return 0
 
-    # +-------------------------------------------------------------------+
-    # |                                                                   |
-    # |  TODO: Implement your own version of distance_to_neighbour here.  |
-    # |                                                                   |
-    # +-------------------------------------------------------------------+
-    k = None
-    for i in range(0, len(data[departure])):
-        if data[departure][i][0] == destination:
-            k = int(data[departure][i][1])
-            break
-    if k is None:
-        k = 0
-    return k
+    # Check if departure is in destination and return the distance
+    if departure in data and destination in data[departure]:
+        return int(data[departure][destination])
+
+    return 0
 
 
 def display(distance_data):
-    """Docstring first, m nho sua lai docstring nay cho phu hop"""
-    u = []
-    for k, v in sorted(distance_data.items()):
-        for i in v:
-            u.append(f"{k:14}{i[0]:14}{i[1]:>5}")
-    return u
+    """
+    Displays the contents of the data structure <distance_data> in
+    alphabetical order according to the departure cities. The display
+    format is as the description of the assignment specifies.
+
+    :param distance_data: dict[str, dict[str, int]], A data structure containing the distance
+              information between the known cities.
+    :return: None
+    """
+
+    # Create a copy of distance_data for printing
+    print_data = distance_data.copy()
+
+    # Sort the dictionary according to the departure cities
+    print_data = sorted(print_data.items())
+
+    # Print the data
+    for departure, destinations in print_data:
+        # Sort the destinations according to the destination cities
+        destinations = sorted(destinations.items())
+
+        for destination, distance in destinations:
+            print(f"{departure:<14}{destination:<14}{distance:>5}")
 
 
 def add(distance_data, dptcity, dttcity, distance):
-    """Docstring first, m nho sua lai docstring nay cho phu hop"""
-    a = []
-    k = []
-    b = []
-    j = []
-    b.append(dttcity)
-    b.append(distance)
-    j.append(b)
-    if dttcity not in distance_data:
-        distance_data[dttcity] = []
+    """
+    Adds a new road segment between <dptcity> and <dttcity> with
+    the length <distance> to the data structure <distance_data>.
+    If <dptcity> or <dttcity> is not a known city, adds the city
+    to the data structure. If there already exists a road segment
+    between <dptcity> and <dttcity>, updates the length of the
+    road segment to the new value <distance>.
 
-    a.append(dttcity)
-    a.append(distance)
-    k.append(a)
+    :param distance_data: dict[str, dict[str, int]], A data structure containing the distance
+                information between the known cities.
+    :param dptcity: str, the name of the departure city.
+    :param dttcity: str, the name of the destination city.
+    :param distance: int, the length of the road segment between
+                <dptcity> and <dttcity>.
+    :return: None
+    """
     if dptcity not in distance_data:
-        distance_data[dptcity] = k
+        distance_data[dptcity] = {dttcity: distance}
     else:
-        a = 0
-        for i in range(0, len(distance_data[dptcity]), 1):
-            if distance_data[dptcity][i][0] == dttcity:
-                distance_data[dptcity][i][1] = k[0][1]
-                a = 1
-                break
-        if a == 0:
-            distance_data[dptcity] += k
-            for u in range(0, len(distance_data[dptcity]) - 1):
-                for v in range(u + 1, len(distance_data[dptcity])):
-                    if distance_data[dptcity][u][0] > distance_data[dptcity][v][0]:
-                        # Change the position
-                        a = distance_data[dptcity][u]
-                        distance_data[dptcity][u] = distance_data[dptcity][v]
-                        distance_data[dptcity][v] = a
+        distance_data[dptcity][dttcity] = distance
 
 
 def remove(distance_data, dptcity, dttcity):
-    """Docstring first, m nho sua lai docstring nay cho phu hop"""
-    a = True
-    for i in range(0, len(distance_data[dptcity]) - 1):
-        if distance_data[dptcity][i][0] == dttcity:
-            distance_data[dptcity].remove(distance_data[dptcity][i])
-            a = False
-    if a:
+    """
+    Removes the road segment between <dptcity> and <dttcity>
+    from the data structure <distance_data>. If <dptcity> or
+    <dttcity> is not a known city or if there is no road
+    segment between the two cities, does nothing.
+
+    :param distance_data: dict[str, dict[str, int]], A data structure containing the distance
+                information between the known cities.
+    :param dptcity: str, the name of the departure city.
+    :param dttcity: str, the name of the destination city.
+    :return: None
+    """
+
+    if dptcity not in distance_data:
+        print(f"Error: '{dptcity}' is unknown.")
+    elif dttcity not in distance_data[dptcity]:
         print(f"Error: missing road segment between '{dptcity}' and '{dttcity}'.")
+    else:
+        del distance_data[dptcity][dttcity]
+
+
+def check_departure(distance_data, dptcity):
+    """
+    Checks if <dptcity> is a departure city in <distance_data>.
+    If <dptcity> is not a departure city, prints an error message
+    and returns False. Otherwise returns True.
+
+    :param distance_data: dict[str, dict[str, int]], A data structure containing the distance
+                information between the known cities.
+    :param dptcity: str, the name of the departure city.
+    :return: bool, True if <dptcity> is a departure city in <distance_data>,
+                False otherwise.
+    """
+    dptcity_in_data = False
+    # Check if dptcity is in distance_data
+    if dptcity not in distance_data:
+        for departure, destinations in distance_data.items():
+            if dptcity in destinations:
+                dptcity_in_data = True
+                break
+
+        if not dptcity_in_data:
+            print(f"Error: '{dptcity}' is unknown.")
+    else:
+        dptcity_in_data = True
+
+    return dptcity_in_data
 
 
 def neighbours(distance_data, dptcity):
-    """Docstring first, m nho sua lai docstring nay cho phu hop"""
-    u = []
-    if dptcity not in distance_data:
-        u.append(f"Error: '{dptcity}' is unknown.")
+    """
+    Prints all the cities that are directly connected to
+    <dptcity>. In other words, prints all the cities where
+    there exist an arrow from <dptcity> to the city in question.
+    If <dptcity> is not a known city, prints an error message.
+
+    :param distance_data: dict[str, dict[str, int]], A data structure containing the distance
+                information between the known cities.
+    :param dptcity: str, the name of the city whose neighbours we
+                are interested in.
+    """
+
+    dptcity_in_data = check_departure(distance_data, dptcity)
+
+    # Print the neighbours
+    if dptcity_in_data:
+        print_data = distance_data.copy()
+
+        # Sort the dictionary according to the departure cities
+        print_data = sorted(print_data.items())
+
+        for departure, destinations in print_data:
+            if departure == dptcity:
+                # Sort the destinations according to the destination cities
+                destinations = sorted(destinations.items())
+
+                # Print the data
+                for destination, distance in destinations:
+                    print(f"{departure:<14}{destination:<14}{distance:>5}")
+
+
+def print_route(distance_data, dptcity, dttcity):
+    """
+    Prints the route from <dptcity> to <dttcity> if such a route
+    exists. The route is printed as a sequence of city names
+    separated by a dash "-". If there is no route between the
+    cities, prints an error message.
+
+    :param distance_data: dict[str, dict[str, int]], A data structure containing the distance
+                information between the known cities.
+    :param dptcity: str, the name of the departure city.
+    :param dttcity: str, the name of the destination city.
+    :return: None
+    """
+    route_found = find_route(distance_data, dptcity, dttcity)
+    
+    if not route_found:
+        print(f"No route found between '{dptcity}' and '{dttcity}'.")
     else:
-        for i in distance_data[dptcity]:
-            u.append(f"{dptcity:14}{i[0]:14}{i[1]:>5}")
-    return u
+        # Calculate the total distance
+        total_distance = 0
+        
+        for i in range(1, len(route_found)):
+            total_distance += distance_to_neighbour(
+                distance_data, route_found[i - 1], route_found[i]
+            )
+
+        # Print the route
+        route = "-".join(route_found)
+        print(f"{route} ({total_distance} km)")
 
 
 def main():
     input_file = input("Enter input file name: ")
-    # input_file = "distances1.txt"
     distance_data = read_distance_file(input_file)
 
     if distance_data is None:
@@ -296,81 +334,39 @@ def main():
             print("Done and done!")
             return
         elif "display".startswith(action):
-            # +----------------------------------------+
-            # |                                        |
-            # |  TODO: Implement "display" action.     |
-            # |                                        |
-            # +----------------------------------------+
-            ...
-            u = display(distance_data)
-            print("\n".join(u))
+            display(distance_data)
+
         elif "add".startswith(action):
-            # +----------------------------------------+
-            # |                                        |
-            # |  TODO: Implement "add" action.         |
-            # |                                        |
-            # +----------------------------------------+
-            ...
             dptcity = input("Enter departure city: ")
             dttcity = input("Enter destination city: ")
             distance = input("Distance: ")
+
             try:
                 int(distance)
                 add(distance_data, dptcity, dttcity, distance)
             except ValueError:
                 print(f"Error: '{distance}' is not an integer.")
+
         elif "remove".startswith(action):
-            # +----------------------------------------+
-            # |                                        |
-            # |  TODO: Implement "remove" action.      |
-            # |                                        |
-            # +----------------------------------------+
-            ...
             dptcity = input("Enter departure city: ")
+            
             if dptcity not in distance_data:
                 print(f"Error: '{dptcity}' is unknown.")
             else:
                 dttcity = input("Enter destination city: ")
                 remove(distance_data, dptcity, dttcity)
+
         elif "neighbours".startswith(action):
-            # +----------------------------------------+
-            # |                                        |
-            # |  TODO: Implement "neighbours" action.  |
-            # |                                        |
-            # +----------------------------------------+
-            ...
             dptcity = input("Enter departure city: ")
-            u = neighbours(distance_data, dptcity)
-            print("\n".join(u))
+            neighbours(distance_data, dptcity)
+
         elif "route".startswith(action):
-            # TODO: Implement "route" action.
-            # +----------------------------------------+
-            # |                                        |
-            # |  TODO: Implement "route" action.       |
-            # |                                        |
-            # +----------------------------------------+
-            ...
             dptcity = input("Enter departure city: ")
-            if dptcity not in distance_data:
-                print(f"Error: '{dptcity}' is unknown.")
-            else:
+            dptcity_in_data = check_departure(distance_data, dptcity)
+            
+            if dptcity_in_data:
                 dttcity = input("Enter destination city: ")
-
-                c = find_route(distance_data, dptcity, dttcity)
-
-                if not c:
-                    print(f"No route found between '{dptcity}' and '{dttcity}'.")
-                elif c[0] == c[1]:
-                    t = "-".join(c)
-                    print(f"{t} (0 km)")
-                else:
-                    totaldistance = 0
-                    for i in range(1, len(c)):
-                        for t in range(0, len(distance_data[c[i - 1]])):
-                            if distance_data[c[i - 1]][t][0] == c[i]:
-                                totaldistance += int(distance_data[c[i - 1]][t][1])
-                    t = "-".join(c)
-                    print(f"{t} ({totaldistance} km)")
+                print_route(distance_data, dptcity, dttcity)
 
         else:
             print(f"Error: unknown action '{action}'.")
